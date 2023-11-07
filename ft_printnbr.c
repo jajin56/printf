@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 void	ft_printnbr(int n, size_t *counter)
 {
 	if (n == -2147483648)
 	{
-		ft_printnbr((n /10), counter);
+		ft_printnbr((n / 10), counter);
 		ft_printchar('8', counter);
 	}
 	else if (n < 0)
@@ -24,10 +24,10 @@ void	ft_printnbr(int n, size_t *counter)
 		ft_printchar('-', counter);
 		ft_printnbr(-n, counter);
 	}
-	else 
+	else
 	{
 		if (n > 9)
 			ft_printnbr((n / 10), counter);
-		ft_putchar_fd((n % 10 + '0'), counter);
+		ft_printchar((n % 10 + '0'), counter);
 	}
 }

@@ -10,14 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "ft_printf.h"
 
-void	ft_putuint_pf(unsigned int num, size_t *counter)
+void	ft_printuint(unsigned int num, size_t *counter)
 {
 	char	*str;
 
 	str = ft_help(num, "0123456789");
-	ft_putstr_pf(str, counter);
+	ft_printstr(str, counter);
 	free(str);
 }

@@ -37,14 +37,14 @@ void	ft_bzero(void *s, size_t n)
 	}
 }
 
-void	*ft_calloc_pf(size_t number, size_t size)
+void	*ft_calloc(size_t number, size_t size)
 {
 	void	*dest;
 
 	dest = malloc (number * size);
 	if (dest == NULL)
 		return (NULL);
-	ft_bzero_pf(dest, number * size);
+	ft_bzero(dest, number * size);
 	return (dest);
 }
 
@@ -54,7 +54,7 @@ static size_t	ft_len(unsigned long long n, char *base)
 	unsigned long long	base_len;
 
 	len = 1;
-	base_len = ft_strlen_pf(base);
+	base_len = ft_strlen(base);
 	while (n >= base_len)
 	{
 		n /= base_len;
@@ -70,8 +70,8 @@ char	*ft_help(unsigned long long n, char *base)
 	int		base_len;
 
 	num_len = ft_len(n, base);
-	base_len = ft_strlen_pf(base);
-	str = ft_calloc_pf((num_len + 1), sizeof(char));
+	base_len = ft_strlen(base);
+	str = ft_calloc((num_len + 1), sizeof(char));
 	if (!str)
 		return (NULL);
 	while (num_len)

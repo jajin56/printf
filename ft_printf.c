@@ -12,27 +12,27 @@
 
 #include "ft_printf.h"
 
-void    ft_format(va_list va, char *str, size_t *counter)
+void	ft_format(va_list va, char *str, size_t *counter)
 {
-    if (*str == 'c')
-        ft_printchar(va_arg(va, int), counter);
-    else if (*str == 's')
-        ft_printstr(va_arg(va, char *), counter);
-    else if (*str == 'p')
-        ft_printptr(va_arg(va, void *), counter);
-    else if (*str == 'i' || *str == 'd')
-        ft_printnbr(va_arg(va, int), counter);
-    else if (*str == 'u')
-        ft_printuint(va_arg(va, unsigned int), counter);
-    else if (*str == 'x' || *str == 'X')
-    {
-        if (*str == 'x')
-            ft_printhex(va_arg(va, unsigned int), counter, HEX_LOW_BASE);
-        else
-            ft_printhex(va_arg(va, unsigned int), counter, HEX_UPP_BASE);
-    }
-    else if (*str == '%')
-        ft_printchar(*str, counter);
+	if (*str == 'c')
+		ft_printchar(va_arg(va, int), counter);
+	else if (*str == 's')
+		ft_printstr(va_arg(va, char *), counter);
+	else if (*str == 'p')
+		ft_printptr(va_arg(va, void *), counter);
+	else if (*str == 'i' || *str == 'd')
+		ft_printnbr(va_arg(va, int), counter);
+	else if (*str == 'u')
+		ft_printuint(va_arg(va, unsigned int), counter);
+	else if (*str == 'x' || *str == 'X')
+	{
+		if (*str == 'x')
+			ft_printhex(va_arg(va, unsigned int), counter, HEX_LOW_BASE);
+		else
+			ft_printhex(va_arg(va, unsigned int), counter, HEX_UPP_BASE);
+	}
+	else if (*str == '%')
+		ft_printchar(*str, counter);
 }
 
 int	ft_printf(char const *str, ...)

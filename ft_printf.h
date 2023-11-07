@@ -24,10 +24,11 @@ int		ft_printf(char const *str, ...);
 void	ft_printchar(char c, size_t *counter);
 void	ft_printstr(char *str, size_t *counter);
 void	ft_printdig(int num, size_t *counter);
+void	ft_printnbr(int n, size_t *counter);
 void	ft_printuint(unsigned int num, size_t *counter);
 void	ft_printhex(unsigned int num, size_t *counter, char *base);
 void	ft_printptr(void *ptr, size_t *counter);
 
-char    *ft_help(unsigned long long n, char *base);
+char	*ft_help(unsigned long long n, char *base);
 
 #endif

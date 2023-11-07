@@ -19,7 +19,7 @@ void	ft_printptr(void *ptr, size_t *counter)
 
 	ptr_end = (unsigned long)ptr;
 	ft_printstr("0x", counter);
-	str = ft_aux_pf(ptr_end, HEX_LOW_BASE);
+	str = ft_help(ptr_end, HEX_LOW_BASE);
 	ft_printstr(str, counter);
 	free(str);
 }

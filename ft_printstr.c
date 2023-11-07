@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_printstr(char *str, size_t *counter)
+void	ft_printstr(char *str, size_t *counter)
 {
 	if (!str)
 		str = NULL;
