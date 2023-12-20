@@ -6,29 +6,26 @@
 /*   By: jajin <jajin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 20:41:09 by jajin             #+#    #+#             */
-/*   Updated: 2023/11/07 14:22:21 by jajin            ###   ########.fr       */
+/*   Updated: 2023/12/20 16:45:25 by jajin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
+
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
 
-# define HEX_UPP_BASE "0123456789ABCDEF"
-# define HEX_LOW_BASE "0123456789abcdef"
-
-int		ft_printf(char const *str, ...);
-
-void	ft_printchar(char c, size_t *counter);
-void	ft_printstr(char *str, size_t *counter);
-void	ft_printdig(int num, size_t *counter);
-void	ft_printnbr(int n, size_t *counter);
-void	ft_printuint(unsigned int num, size_t *counter);
-void	ft_printhex(unsigned int num, size_t *counter, char *base);
-void	ft_printptr(void *ptr, size_t *counter);
-
-char	*ft_help(unsigned long long n, char *base);
+int		ft_printf(const char *str, ...);
+int		ft_printnumbers(int c);
+int		ft_print_format(va_list ap, const char format);
+int		ft_print_str(char *str);
+int		ft_printunsigned(unsigned int c);
+int		ft_printhex(unsigned int c, const char format);
+int		ft_printpointer(unsigned long ptr);
+char	*ft_itoa(int n);
+int		ft_print_char(int c);
+int		ft_print_percent(void);
 
 #endif

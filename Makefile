@@ -6,39 +6,37 @@
 #    By: jajin <jajin@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 14:20:38 by jajin             #+#    #+#              #
-#    Updated: 2023/11/07 14:21:25 by jajin            ###   ########.fr        #
+#    Updated: 2023/12/20 16:34:11 by jajin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	libftprintf.a
+NAME = libftprintf.a
 
-SRC	=	ft_printf.c			\
-		ft_printchar.c		\
-		ft_printstr.c		\
-		ft_printnbr.c		\
-		ft_printuint.c		\
-		ft_printhex.c		\
-		ft_printptr.c		\
-		ft_help.c			\
+CC = cc
 
-OBJS = $(SRC:.c=.o)
+CFLAGS = -Wall -Wextra -Werror
 
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra
-RM = rm -rf
-AR = ar crs
+AR = ar -rcs
 
-$(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+SRCS = ft_printf.c ft_printnumbers.c ft_printhex.c ft_printpointer.c ft_helper.c
+
+OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
+$(NAME): $(OBJS) 
+	$(AR) $(NAME) $(OBJS)
+
+%.o: %.c
+	$(CC) $(CFLAGS)	-c $< -o $@
+
 clean:
-	$(RM) $(OBJS)
+	rm -f $(OBJS)
 
-fclean:	clean
-	$(RM) $(NAME)		
 
-re:	fclean all
+fclean: clean
+	rm -f $(NAME)
 
-.PHONY:	all clean fclean re
+re: fclean all
+
+.PHONY: all clean fclean re
